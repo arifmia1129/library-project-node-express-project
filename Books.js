@@ -28,3 +28,8 @@ class Books {
         return deletedBook;
     }
 }
+
+
+const books = new Books();
+
+module.exports = books;
