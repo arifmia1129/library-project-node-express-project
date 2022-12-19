@@ -72,3 +72,22 @@ exports.updateBookById = (req, res) => {
     })
 }
 
+exports.deleteBookById = (req, res) => {
+    const { id } = req.params;
+
+    const book = books.deleteBookById(id)
+
+    if (!book) {
+        return res.status(404).json({
+            success: false,
+            message: "Couldn't get book by given id"
+        })
+    }
+
+    res.status(201).json({
+        success: true,
+        message: 'Successfully delete book information',
+        book
+    })
+}
+

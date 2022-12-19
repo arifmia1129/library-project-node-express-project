@@ -24,7 +24,7 @@ class Books {
     deleteBookById(id) {
         let index = this.books.findIndex(book => book.id == id);
         const deletedBook = this.books[index];
-        this.books.filter(book => book.id != id);
+        this.books = this.books.filter(book => book.id != id);
         return deletedBook;
     }
 }
