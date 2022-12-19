@@ -5,4 +5,6 @@ router.get('/', bookController.getAllBook)
 
 router.post('/', bookController.addNewBook)
 
+router.get('/:id', bookController.getBookById)
+
 module.exports = router;
