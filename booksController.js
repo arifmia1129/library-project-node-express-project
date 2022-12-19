@@ -48,3 +48,27 @@ exports.getBookById = (req, res) => {
     })
 }
 
+exports.updateBookById = (req, res) => {
+    const { id } = req.params;
+    const { name, author, category } = req.body;
+
+    const book = books.updateBookById(id, {
+        name,
+        author,
+        category
+    })
+
+    if (!book) {
+        return res.status(404).json({
+            success: false,
+            message: "Couldn't get book by given id"
+        })
+    }
+
+    res.status(201).json({
+        success: true,
+        message: 'Successfully update book information',
+        book
+    })
+}
+
