@@ -18,10 +18,14 @@ exports.getAllBook = (req, res) => {
 
 exports.addNewBook = (req, res) => {
     const { name, author, category } = req.body;
-
     const book = books.addNewBook({
         name,
         author,
         category
+    })
+    res.status(201).json({
+        success: true,
+        message: 'Successfully add new book into library',
+        book
     })
 }
